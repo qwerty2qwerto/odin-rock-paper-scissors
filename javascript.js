@@ -4,19 +4,28 @@
 //  Generate random number 
 //
 
-let computerChoice;
+let playerSelection;
+let computerSelection;
 
-function getComputerChoice() {
-    let x = Math.floor((Math.random()) * 3) + 1;
-    if (x === 1) {
-        computerChoice = 'Rock';
-    } else if (x === 2) {
-        computerChoice = 'Paper';
-    } else {
-        computerChoice = 'Scissors';
+function getPlayerChoice() {
+    playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+    if (playerSelection !== 'rock' &&
+        playerSelection !== 'paper' &&
+        playerSelection !== 'scissors') {
+            alert(`Try again dumbass.`);
+            location.reload();
     }
 }
 
+function getComputerChoice() {
+    let numericComputerSelection = Math.floor((Math.random()) * 3) + 1;
+    if (numericComputerSelection === 1) {
+        computerSelection = 'rock';
+    } else if (numericComputerSelection === 2) {
+        computerSelection = 'paper';
+    } else {
+        computerSelection = 'scissors';
+    }
+}
 
-getComputerChoice();
-console.log(computerChoice);
+getPlayerChoice();
